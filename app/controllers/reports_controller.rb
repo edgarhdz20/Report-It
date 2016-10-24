@@ -63,10 +63,8 @@ class ReportsController < ApplicationController
   end
 
   def post_report
-    @report = Report.new(photo_params)
-    logger.info "--------------------------------"
-    logger.info params[:avatar]
-    @report.avatar = params[:avatar]
+    @report = Report.new(report_mobile_params)
+    #@report.avatar = params[:avatar]
     if @report.save
       render json: @report
     else
@@ -85,7 +83,7 @@ class ReportsController < ApplicationController
       params.require(:report).permit(:user_id, :report_type_id, :description, :pos_x, :pos_y, :address, :avatar)
     end
 
-    def photo_params
-      params.permit(:avatar)
+    def report_mobile_params
+       params.permit(:avatar, :user_id, :report_type_id, :description, :pos_x, :pos_y, :address)
     end
 end
