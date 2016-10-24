@@ -1,0 +1,49 @@
+<%= form_for(report) do |f| %>
+  <% if report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(report.errors.count, "error") %> prohibited this report from being saved:</h2>
+
+      <ul>
+      <% report.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field col-sm-6">
+    <%= image_tag report.avatar.url %>
+  </div>
+  <div class="field col-sm-6">
+    <%= f.label :avatar %><br>
+    <%= f.file_field :avatar %>
+  </div>
+  <div class="field col-sm-12 col-md-6">
+    <%= f.label :report_type_id %>
+    <%= f.collection_select :report_type_id, ReportType.all, :id, :description  %>
+  </div>
+
+  <div class="field col-sm-12 col-md-6">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="field col-sm-12 col-md-6">
+    <%= f.label :pos_x %>
+    <%= f.text_field :pos_x %>
+  </div>
+
+  <div class="field col-sm-12 col-md-6">
+    <%= f.label :pos_y %>
+    <%= f.text_field :pos_y %>
+  </div>
+
+  <div class="field col-sm-12 col-md-6">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+
+  <br class="clear">
+  <div class="actions row row-centered">
+    <%= f.submit :class => "col-xs-12 col-md-3 col-centered" %>
+  </div>
+<% end %>

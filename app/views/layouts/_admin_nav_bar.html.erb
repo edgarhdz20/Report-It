@@ -1,0 +1,19 @@
+<nav class="side-nav-bar">
+    <div class="user-info">
+        <h4 class="user-title"><%= current_user.first_name %> <%= current_user.last_name %></h4>
+        <% logger.info current_user.role.name %>
+        <h5 class="user-title"><%= current_user.role.name %></h4>
+        <%= link_to('Cerrar sesion', destroy_user_session_path, :method => :delete) %>  
+    </div>
+    <ul class="nav-bar-list">
+        <a href="/">
+            <li><i class="fa fa-home"></i> Inicio</li>
+        </a>
+        <a href="/roles">
+            <li><i class="fa fa-users"></i> Roles</li>
+        </a>
+        <a href="/users">
+            <li><i class="fa fa-user"></i> Usuarios</li>
+        </a>
+    </ul>
+</nav>

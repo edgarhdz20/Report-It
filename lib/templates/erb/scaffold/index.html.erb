@@ -1,0 +1,57 @@
+<div class="welcome-body">
+  <div class="section">
+    <div class="section-header">
+      <h1><%= plural_table_name.titleize %></h1>
+    </div>
+    <div class="section-content">
+      <table>
+        <thead>
+          <tr>
+      <% attributes.reject(&:password_digest?).each do |attribute| -%>
+            <th><%= attribute.human_name %></th>
+      <% end -%>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+            <tr>
+      <% attributes.reject(&:password_digest?).each do |attribute| -%>
+              <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+      <% end -%>
+              <td>
+                <%% if can? :show,<%= singular_table_name %> %>
+                  <%%= link_to <%= singular_table_name %>, :class => "btn btn-info", :title => "Ver" do %>
+                    <span class="fa fa-eye"></span>
+                  <%% end %>
+                <%% end %>
+              </td>
+              <td>
+                <%% if can? :edit,<%= singular_table_name %> %>
+                  <%%= link_to edit_<%= singular_table_name %>_path(<%= singular_table_name %>), :class => "btn btn-warning", :title => "Editar" do %>
+                    <span class="fa fa-pencil"></span>
+                  <%% end %>
+                <%% end %>
+              </td>
+              <td>
+                <%% if can? :delete,<%= singular_table_name %> %>
+                  <%%= link_to <%= singular_table_name %>, method: :delete, data: { confirm: 'Estas seguro?' }, :class => "btn btn-danger", :title => "Eliminar" do %>
+                    <span class="fa fa-trash"></span>
+                  <%% end %>
+                <%% end %>
+              </td>
+            </tr>
+          <%% end %>
+        </tbody>
+      </table>
+
+      <br>
+      <%% if can? :new, <%= class_name %>  %>
+        <%%= link_to new_<%= singular_table_name %>_path, :class => "btn btn-primary" do %>
+          <span class="fa fa-plus"></span> Nuevo <%= singular_table_name %>
+        <%% end %>
+      <%% end %>
+    </div>
+  </div>
+</div>

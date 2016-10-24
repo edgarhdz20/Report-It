@@ -1,0 +1,63 @@
+<div class="welcome-body">
+  <div class="section">
+    <div class="section-header">
+      <h1>Reports</h1>
+    </div>
+    <div class="section-content">
+      <table>
+        <thead>
+          <tr>
+                  <th>User</th>
+                  <th>Report type</th>
+                  <th>Description</th>
+                  <th>Pos x</th>
+                  <th>Pos y</th>
+                  <th>Address</th>
+                  <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @reports.each do |report| %>
+            <tr>
+                    <td><%= report.user.first_name %> <%= report.user.last_name %></td>
+                    <td><%= report.report_type.description %></td>
+                    <td><%= report.description %></td>
+                    <td><%= report.pos_x %></td>
+                    <td><%= report.pos_y %></td>
+                    <td><%= report.address %></td>
+                    <td>
+                <% if can? :show,report %>
+                  <%= link_to report, :class => "btn btn-info", :title => "Ver" do %>
+                    <span class="fa fa-eye"></span>
+                  <% end %>
+                <% end %>
+              </td>
+              <td>
+                <% if can? :edit,report %>
+                  <%= link_to edit_report_path(report), :class => "btn btn-warning", :title => "Editar" do %>
+                    <span class="fa fa-pencil"></span>
+                  <% end %>
+                <% end %>
+              </td>
+              <td>
+                <% if can? :delete,report %>
+                  <%= link_to report, method: :delete, data: { confirm: 'Estas seguro?' }, :class => "btn btn-danger", :title => "Eliminar" do %>
+                    <span class="fa fa-trash"></span>
+                  <% end %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <br>
+      <% if can? :new, Report  %>
+        <%= link_to new_report_path, :class => "btn btn-primary" do %>
+          <span class="fa fa-plus"></span> Nuevo report
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

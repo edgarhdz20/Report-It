@@ -1,0 +1,36 @@
+<div class="welcome-body">
+	<div class="section">
+		<div class="section-header">
+		</div>
+		<div class="section-content">
+			<p>
+			  <strong>User:</strong>
+			  <%= @report.user.first_name %> <%= @report.user.last_name %>
+			</p>
+			<p>
+			  <strong>Report type:</strong>
+			  <%= @report.report_type.description %>
+			</p>
+			<p>
+			  <strong>Description:</strong>
+			  <%= @report.description %>
+			</p>
+			<p>
+			  <strong>Pos x:</strong>
+			  <%= @report.pos_x %>
+			</p>
+			<p>
+			  <strong>Pos y:</strong>
+			  <%= @report.pos_y %>
+			</p>
+			<p>
+			  <strong>Address:</strong>
+			  <%= @report.address %>
+			</p>
+			<div class="row row-centered">
+				<%= link_to 'Editar', edit_report_path(@report), :class => "btn btn-default col-xs-12 col-md-3 col-centered" %>
+				<%= link_to 'Regresar', reports_path, :class => "btn btn-default col-xs-12 col-md-3 col-centered" %>
+			</div>
+		</div>
+	</div>
+</div>

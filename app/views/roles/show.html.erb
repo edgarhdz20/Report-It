@@ -1,0 +1,22 @@
+<div class="welcome-body">
+	<div class="section">
+		<div class="section-header">
+			<h1>Informacion del rol</h1>
+		</div>
+		<div class="section-content">
+			<div class="row">
+				<div class="col-md-6"><h4>Nombre:</h4></div>
+				<div class="col-md-6"><h4><%= @role.name %></h4></div>
+			</div>
+			<div class="row">
+				<div class="col-md-6"><h4>Descripcion:</h4></div>
+				<div class="col-md-6"><h4><%= @role.description %></h4></div>
+			</div>
+			<br>
+			<div class="row row-centered">
+				<%= link_to 'Editar', edit_role_path(@role), :class => "btn btn-default col-xs-12 col-md-3 col-centered" %>
+				<%= link_to 'Regresar', roles_path, :class => "btn btn-default col-xs-12 col-md-3 col-centered" %>
+			</div>
+		</div>
+	</div>	
+</div>

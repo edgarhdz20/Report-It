@@ -1,0 +1,15 @@
+<div class="welcome-body">
+  <div class="section">
+    <div class="section-header">
+		<h1>Editing <%= singular_table_name.titleize %></h1>
+	</div>
+		<div class="section-content">
+			<%%= render 'form', <%= singular_table_name %>: @<%= singular_table_name %> %>
+			<div class="row row-centered">
+				<%%= link_to 'Ver', @<%= singular_table_name %>, :class => "btn btn-default col-xs-12 col-md-3 col-centered" %>
+				<%%= link_to 'Regresar', <%= index_helper %>_path, :class => "btn btn-default col-xs-12 col-md-3 col-centered" %>
+			</div>
+			<br class="clear">
+		</div>
+	</div>
+</div>

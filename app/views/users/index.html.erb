@@ -1,0 +1,54 @@
+<div class="welcome-body">
+  <div class="section">
+    <div class="section-header">
+      <h1>Lista de Usuarios</h1>
+    </div>
+    <div class="section-content">
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Rol</th>
+            <th>Correo</th>
+            <th>Usuario</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.first_name %></td>
+              <td><%= user.last_name %></td>
+              <td><%= user.role.name if user.role %></td>
+              <td><%= user.email %></td>
+              <td><%= user.username %></td>
+              <td>
+                <%= link_to user, :class => "btn btn-info" do %>
+                  <span class="fa fa-eye"></span>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to edit_user_path(user), :class => "btn btn-warning" do %>
+                  <span class="fa fa-pencil"></span>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to user, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" do %>
+                  <span class="fa fa-trash"></span>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <br>
+
+      <%= link_to new_user_path, :class => "btn btn-primary" do %>
+        <span class="fa fa-plus"></span> Nuevo usuario
+      <% end %>
+    </div>
+  </div>
+</div>

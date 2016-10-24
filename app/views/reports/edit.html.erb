@@ -1,0 +1,15 @@
+<div class="welcome-body">
+  <div class="section">
+    <div class="section-header">
+		<h1>Editing Report</h1>
+	</div>
+		<div class="section-content">
+			<%= render 'form', report: @report %>
+			<div class="row row-centered">
+				<%= link_to 'Ver', @report, :class => "btn btn-default col-xs-12 col-md-3 col-centered" %>
+				<%= link_to 'Regresar', reports_path, :class => "btn btn-default col-xs-12 col-md-3 col-centered" %>
+			</div>
+			<br class="clear">
+		</div>
+	</div>
+</div>

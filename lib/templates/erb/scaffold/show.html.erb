@@ -1,0 +1,18 @@
+<div class="welcome-body">
+	<div class="section">
+		<div class="section-header">
+		</div>
+		<div class="section-content">
+			<% attributes.reject(&:password_digest?).each do |attribute| -%>
+			<p>
+			  <strong><%= attribute.human_name %>:</strong>
+			  <%%= @<%= singular_table_name %>.<%= attribute.name %> %>
+			</p>
+			<% end -%>
+			<div class="row row-centered">
+				<%%= link_to 'Editar', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), :class => "btn btn-default col-xs-12 col-md-3 col-centered" %>
+				<%%= link_to 'Regresar', <%= index_helper %>_path, :class => "btn btn-default col-xs-12 col-md-3 col-centered" %>
+			</div>
+		</div>
+	</div>
+</div>
