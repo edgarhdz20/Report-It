@@ -187,3 +187,8 @@ tbody tr:hover{
 .clear{
 	clear: both;
 }
+
+#map{
+	height: 300px;
+	margin-bottom: 1em;
+}

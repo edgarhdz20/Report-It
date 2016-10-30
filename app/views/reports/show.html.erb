@@ -1,32 +1,39 @@
 <div class="welcome-body">
 	<div class="section">
 		<div class="section-header">
+			<h1>Reporte <%= @report.id %></h1>
 		</div>
 		<div class="section-content">
-			<p>
-			  <strong>User:</strong>
-			  <%= @report.user.first_name %> <%= @report.user.last_name %>
-			</p>
-			<p>
-			  <strong>Report type:</strong>
-			  <%= @report.report_type.description %>
-			</p>
-			<p>
-			  <strong>Description:</strong>
-			  <%= @report.description %>
-			</p>
-			<p>
-			  <strong>Pos x:</strong>
-			  <%= @report.pos_x %>
-			</p>
-			<p>
-			  <strong>Pos y:</strong>
-			  <%= @report.pos_y %>
-			</p>
-			<p>
-			  <strong>Address:</strong>
-			  <%= @report.address %>
-			</p>
+			<div class="col-md-6">
+				<div class="col-md-12">
+				  <strong>Usuario:</strong>
+				  <%= @report.user.first_name %> <%= @report.user.last_name %>
+				</div>
+				<div class="col-md-12">
+				  <strong>Tipo de reporte:</strong>
+				  <%= @report.report_type.description %>
+				</div>
+				<div class="col-md-12">
+				  <strong>Descripcion:</strong>
+				  <%= @report.description %>
+				</div>
+				<div class="col-md-12">
+				  <strong>Latitud:</strong>
+				  <span id="lat"><%= @report.pos_x %></span>
+				</div>
+				<div class="col-md-12">
+				  <strong>Longitud:</strong>
+				  <span id="lng"><%= @report.pos_y %></span>
+				</div>
+				<div class="col-md-12">
+				  <strong>Direccion:</strong>
+				  <span id="add"><%= @report.address %></span>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="col-md-12" id="map">
+				</div>
+			</div>
 			<div class="row row-centered">
 				<%= link_to 'Editar', edit_report_path(@report), :class => "btn btn-default col-xs-12 col-md-3 col-centered" %>
 				<%= link_to 'Regresar', reports_path, :class => "btn btn-default col-xs-12 col-md-3 col-centered" %>
@@ -34,3 +41,10 @@
 		</div>
 	</div>
 </div>
+
+<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+async defer></script>
+
+<% content_for :javascript_includes do %>
+    <%= javascript_include_tag "google_maps" %>
+<% end %>
