@@ -33,6 +33,9 @@
 			<div class="col-md-6">
 				<div class="col-md-12" id="map">
 				</div>
+				<div class="col-md-12">
+					<%= image_tag @report.avatar.url %>
+				</div>
 			</div>
 			<div class="row row-centered">
 				<%= link_to 'Editar', edit_report_path(@report), :class => "btn btn-default col-xs-12 col-md-3 col-centered" %>
