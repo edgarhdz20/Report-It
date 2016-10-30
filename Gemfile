@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'pg'
 gem 'carrierwave'
 gem 'font-awesome-rails'
 gem 'cancancan'
