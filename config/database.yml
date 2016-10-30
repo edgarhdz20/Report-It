@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
-  database: report_it_production
-  username: report_it
-  password: <%= ENV['REPORT_IT_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  database: d9jurumsujgvn4
+  username: zbdfatffljbgft
+  password: REAcA49VkSvY9Nss-PcViBulMt
