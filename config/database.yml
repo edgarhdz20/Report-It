@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
+  encoding: unicode
   adapter: postgresql
   database: d9jurumsujgvn4
   username: zbdfatffljbgft
