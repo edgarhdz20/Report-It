@@ -11,7 +11,6 @@ function initMap() {
 
     var marker = new google.maps.Marker({
       	map: map,
-      	position: {lat: lat, lng: lng},
-      	title: address
+      	position: {lat: lat, lng: lng}
     });
 }
