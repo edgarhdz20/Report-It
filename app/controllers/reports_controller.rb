@@ -66,9 +66,14 @@ class ReportsController < ApplicationController
     @report = Report.new(report_mobile_params)
     #@report.avatar = params[:avatar]
     if @report.save
-      render json: @report
+      render status: 200, json: {
+        message: "El reporte se guardo correctamente.",
+        report: @report
+      }.to_json
     else
-      render json: "Hubo un error al guardar, intentalo de nuevo mas tarde"
+      render status: 500, json: {
+        message: "Hubo un error al guardar, intentalo de nuevo mas tarde."
+      }.to_json
     end
   end
 
