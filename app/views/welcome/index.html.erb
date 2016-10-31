@@ -1,5 +1,5 @@
 <div class="welcome-body">
-	<% @reports.each do |report| %>
+	<% @reports.each_with_index do |report, i| %>
 	    <div class="section">
 	    	<div class="section-header">
 	    		<h3><%= report.id %> - <%= report.address %></h3>
@@ -15,9 +15,9 @@
 		    			<%= image_tag report.avatar.url, :class => "image_report" %>
 		    		</div>
 		    		<div class="col-md-4 col-centered">
-			    		<div id="map">
-			    			<span id="lat" class="hidden"><%= report.pos_x %></span>
-			    			<span id="lng" class="hidden"><%= report.pos_y %></span>
+			    		<div id="map<%= i %>">
+			    			<span id="lat<%= i %>" class="hidden"><%= report.pos_x %></span>
+			    			<span id="lng<%= i %>" class="hidden"><%= report.pos_y %></span>
 			    		</div>
 		    		</div>
 	    		</div>
@@ -27,7 +27,7 @@
 	<% end %>    
 </div>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHzb6cgjC95Y5VyEkZkSfzDbyK9elslNs&callback=initMap"
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHzb6cgjC95Y5VyEkZkSfzDbyK9elslNs&callback=initMaps"
 async defer></script>
 
 <% content_for :javascript_includes do %>

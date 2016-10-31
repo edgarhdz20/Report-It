@@ -188,7 +188,7 @@ tbody tr:hover{
 	clear: both;
 }
 
-#map{
+div[id^=map]{
 	height: 300px;
 	margin-bottom: 1em;
 }

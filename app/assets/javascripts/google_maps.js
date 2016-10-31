@@ -14,3 +14,22 @@ function initMap() {
       	position: {lat: lat, lng: lng}
     });
 }
+
+function initMaps() {
+  $(".section").each(function(i){
+    console.log("HOLA");
+    lat = parseFloat($('#lat' + i).html());
+    lng = parseFloat($('#lng' + i).html());  
+
+    var map = new google.maps.Map(document.getElementById('map' + i), {
+    center: {lat: lat, lng: lng},
+      scrollwheel: false,
+      zoom: 16
+    });
+
+    var marker = new google.maps.Marker({
+        map: map,
+        position: {lat: lat, lng: lng}
+    });
+  });
+}
