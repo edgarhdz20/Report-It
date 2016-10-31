@@ -68,7 +68,7 @@ class ReportsController < ApplicationController
     if @report.save
       render json: @report
     else
-     render json: @report.errors
+      render json: "Hubo un error al guardar"
     end
   end
 
