@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+gem 'figaro'
+gem 'carrierwave-dropbox'
 gem 'pg'
 gem 'carrierwave'
 gem 'font-awesome-rails'
