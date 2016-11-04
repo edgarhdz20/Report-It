@@ -8,12 +8,12 @@ module ApplicationHelper
 
 	    case distance_in_minutes
 	      	when 0..1
-	        	return (distance_in_minutes == 0) ? 'menos de um minuto' : '1 minuto' unless include_seconds
+	        	return (distance_in_minutes == 0) ? 'menos de un minuto' : '1 minuto' unless include_seconds
 	        case distance_in_seconds
 	           when 0..4   then 'menos de 5 segundos'
 	           when 5..9   then 'menos de 10 segundos'
 	           when 10..19 then 'menos de 20 segundos'
-	           when 20..59 then 'menos de um minuto'
+	           when 20..59 then 'menos de un minuto'
 	        else             '1 minuto'
 	        end
 
