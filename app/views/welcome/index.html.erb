@@ -6,7 +6,18 @@
 	    	</div>
 	    	<div class="section-content">
 	    		<div class="row">
+		    		<div class="col-md-12 date_report">
+		    			<% date = report.created_at %>
+		    			<% days = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'] %>
+		    			<% months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'] %>
+		    			<a href="" title="<%= days[date.wday] %>, <%= date.day %> de <%= months[date.month] %> de <%= date.year %> a las <%= date.hour %>:<%= date.min %>">
+		    				Hace <%= time_ago_in_words(date) %>
+		    			</a>
+		    		</div>
+	    		</div>
+	    		<div class="row">
 		    		<div class="col-md-12 description_report">
+		    			Descripcion: <br>
 		    			<%= report.description %>
 		    		</div>
 	    		</div>

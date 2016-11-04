@@ -1,5 +1,6 @@
 class ReportTypesController < ApplicationController
   before_action :set_report_type, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /report_types
   # GET /report_types.json

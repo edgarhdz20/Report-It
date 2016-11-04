@@ -1,5 +1,11 @@
 <nav class="side-nav-bar">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 id="nav-title">Report <span class="orange-text">it</span></h1>
+      </div>
+    </div>
     <div class="user-info">
+        <%= image_tag current_user.avatar.url, :class => "user_img" %>
         <h4 class="user-title"><%= current_user.first_name %> <%= current_user.last_name %></h4>
         <% logger.info current_user.role.name %>
         <h5 class="user-title"><%= current_user.role.name %></h4>
@@ -14,6 +20,12 @@
         </a>
         <a href="/users">
             <li><i class="fa fa-user"></i> Usuarios</li>
+        </a>
+        <a href="/report_types">
+            <li><i class="fa fa-list-ol"></i> Tipos de reporte</li>
+        </a>
+        <a href="/reports">
+            <li><i class="fa fa-list"></i> Lista de reportes</li>
         </a>
     </ul>
 </nav>
