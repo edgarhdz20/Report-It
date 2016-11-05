@@ -21,13 +21,13 @@ class Devise::SessionsController < DeviseController
       sign_in(resource_name, resource)        
       
       if request.content_type == "application/json"
-        render json: {:correct => "OK"}
+        render json: {:login => "OK"}
       else
         set_flash_message(:notice, :signed_in) if is_navigational_format?
         respond_with resource, location: after_sign_in_path_for(resource)
       end
     elsif request.content_type == "application/json"
-      render json: { :errors => t("devise.failure.invalid") }
+      render json: { :login => t("devise.failure.invalid") }
     else
       redirect_to new_user_session_path, alert: t("devise.failure.invalid")
     end
