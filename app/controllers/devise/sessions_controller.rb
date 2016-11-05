@@ -21,19 +21,13 @@ class Devise::SessionsController < DeviseController
       sign_in(resource_name, resource)        
       
       if request.content_type == "application/json"
-        # company = nil
-        # if current_user.enterprise
-        #   company = current_user.enterprise.company_name
-        # end
-        #user_data = current_user.attributes.merge(:role => current_user.role, :deparment_works => current_user.department_works, :section_departments => current_user.section_departments, :user_profiles=> current_user.user_profiles, :enterprise => company)
-#          user_data.merge!(current_user.employee.get_data_attributes) if !current_user.employee.nil?
-        render json: "OK"
+        render json: {:correct => "OK"}
       else
         set_flash_message(:notice, :signed_in) if is_navigational_format?
         respond_with resource, location: after_sign_in_path_for(resource)
       end
     elsif request.content_type == "application/json"
-      render json: { :errors => [t("devise.failure.invalid")] }
+      render json: { :errors => t("devise.failure.invalid") }
     else
       redirect_to new_user_session_path, alert: t("devise.failure.invalid")
     end
