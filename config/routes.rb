@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :report_types
   resources :report_types
   resources :reports
+  
   devise_for :users
   scope "/admin" do
     resources :users
