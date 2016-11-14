@@ -25,4 +25,12 @@ class User < ActiveRecord::Base
   def is_municipio?
     self.role.name == "Municipio"
   end
+
+  def is_cfe?
+    self.role.name == "CFE"
+  end
+
+  def email_required?
+    false
+  end
 end

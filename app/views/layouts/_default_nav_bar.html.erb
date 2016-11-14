@@ -1,16 +1,22 @@
 <nav class="side-nav-bar">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 id="nav-title">Report <span class="orange-text">it</span></h1>
+      </div>
+    </div>
     <div class="user-info">
+        <%= image_tag current_user.avatar.url, :class => "user_img" %>
         <h4 class="user-title"><%= current_user.first_name %> <%= current_user.last_name %></h4>
         <% logger.info current_user.role.name %>
         <h5 class="user-title"><%= current_user.role.name %></h4>
         <%= link_to('Cerrar sesion', destroy_user_session_path, :method => :delete) %>  
     </div>
     <ul class="nav-bar-list">
-        <a href="">
-            <li><span class="fa fa-home"></span> INICIO</li>
+        <a href="/">
+            <li><i class="fa fa-home"></i> Inicio</li>
         </a>
-        <a href="">
-            <li>Opcion 2</li>
+        <a href="/reports">
+            <li><i class="fa fa-list"></i> Lista de reportes</li>
         </a>
     </ul>
 </nav>

@@ -15,8 +15,8 @@
         <tbody>
           <% @report_types.each do |report_type| %>
             <tr>
-                    <td><%= report_type.description %></td>
-                    <td>
+              <td><%= report_type.description %></td>
+              <td>
                 <% if can? :show,report_type %>
                   <%= link_to report_type, :class => "btn btn-info", :title => "Ver" do %>
                     <span class="fa fa-eye"></span>

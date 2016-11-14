@@ -10,10 +10,8 @@
 <% if current_user %>
 	<% if current_user.is_admin? %>
 		<%= render 'layouts/admin_nav_bar' %>
-	<% elsif current_user.is_jmas? %>
-		<%= render 'layouts/jmas_nav_bar' %>
-	<% elsif current_user.is_municipio? %>
-		<%= render 'layouts/municipio_nav_bar' %>
+	<% else %>
+		<%= render 'layouts/default_nav_bar' %>
 	<% end %>
 <% end %>
 <%= yield %>
