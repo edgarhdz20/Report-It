@@ -20,7 +20,7 @@
         <tbody>
           <% @reports.each do |report| %>
             <tr>
-                    <td><%= report.user.first_name %> <%= report.user.last_name %></td>
+                    <td><%= report.user.username %></td>
                     <td><%= report.report_type.description %></td>
                     <td><%= report.description %></td>
                     <td><%= report.pos_x %></td>
