@@ -21,7 +21,7 @@ class Devise::SessionsController < DeviseController
       sign_in(resource_name, resource)        
       
       if request.content_type == "application/json"
-        render json: {:login => "OK", :user => resource.id}
+        render json: {:login => "OK", :user => resource.id, :email => resource.email}
       else
         set_flash_message(:notice, :signed_in) if is_navigational_format?
         respond_with resource, location: after_sign_in_path_for(resource)
