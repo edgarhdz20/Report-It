@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   
-  resources :reports
+  resources :reports do
+    collection do
+      get 'get_all_reports_user'
+    end
+  end
+
 
   post 'reports/post_report'
 

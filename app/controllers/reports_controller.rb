@@ -87,6 +87,11 @@ class ReportsController < ApplicationController
     end
   end
 
+  def get_all_reports_user
+    @reports = Report.all.where(:user_id => current_user.id)
+    render json: @reports.to_json({:include => :avatar_url})
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_report
