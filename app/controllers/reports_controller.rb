@@ -90,7 +90,7 @@ class ReportsController < ApplicationController
   def get_all_reports_user
     user_id = params[:user_id]
     @reports = Report.all.where(:user_id => user_id)
-    render json: @reports.to_json({:include => :avatar_url})
+    render json: @reports.to_json({:methods => :avatar_url})
   end
 
   private
