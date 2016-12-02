@@ -1,8 +1,8 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
-  skip_before_filter :authenticate_user!, only: [:post_report]
-  skip_before_action :verify_authenticity_token, only: [:post_report]
+  skip_before_filter :authenticate_user!, only: [:post_report, :get_all_reports_user]
+  skip_before_action :verify_authenticity_token, only: [:post_report, :get_all_reports_user]
 
   # GET /reports
   # GET /reports.json
